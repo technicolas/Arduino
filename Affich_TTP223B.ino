@@ -4,7 +4,7 @@
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
 int ledV = 13;                            // Pin pour la LED Verte
-int ledR = 7;                            // Pin pour la LED Rouge
+int ledR = 7;                             // Pin pour la LED Rouge
  
 void setup() {
   Serial.begin(9600);
