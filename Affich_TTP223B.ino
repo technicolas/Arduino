@@ -1,10 +1,9 @@
 #include <LiquidCrystal_I2C.h> 
-#define captTouch 2                       // Pin for capactitive touch sensor
+#define captTouch 2                       // Pin pour le capteur capacitif "Touch"
+#define ledR      3                       // Pin pour la LED Rouge
+#define ledV      4                       // Pin pour la LED Verte
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
-
-int ledV = 13;                            // Pin pour la LED Verte
-int ledR = 7;                             // Pin pour la LED Rouge
  
 void setup() {
   Serial.begin(9600);
@@ -38,7 +37,7 @@ void loop() {
     lcd.print("FERMETURE PORTE ");        // Afficher texte ligne 0
     lcd.setCursor(0,1);                   // Se positionne au caractère 0 de la première ligne 1
     lcd.print("    en cours    ");        // Afficher texte ligne 1
-    delay(2000);
+    cligno();
   }
   else{
     digitalWrite(ledV,LOW);
@@ -51,4 +50,13 @@ void loop() {
     lcd.print("Appui --> ouvrir");
   }
   delay(100);
+}
+
+void cligno(void){                        // Fonction de clignotement LED Verte
+  for(int i=0;i<6;i++){
+    digitalWrite(ledV, LOW);
+    delay(100);
+    digitalWrite(ledV, HIGH);
+    delay(300);
+  }
 }
