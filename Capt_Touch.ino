@@ -1,6 +1,9 @@
 #define capteurTouch 2 // Pin for capactitive touch sensor
  
 int ledPin = 13; // pin for the LED
+int ledState = LOW;
+int lastButtonState;
+int currentButtonState;
  
 void setup() {
   Serial.begin(9600);
@@ -9,14 +12,13 @@ void setup() {
 }
  
 void loop() {
-  int valCapt = digitalRead(capteurTouch);
-  if (valCapt == HIGH){
-    digitalWrite(ledPin, HIGH);
-    Serial.println(valCapt);
+  lastButtonState    = currentButtonState;
+  currentButtonState = digitalRead(capteurTouch);
+
+  if(lastButtonState == LOW && currentButtonState == HIGH) {
+    Serial.println(ledState);
+    ledState=!ledState;
+    digitalWrite(ledPin, ledState);
   }
-  else{
-    digitalWrite(ledPin,LOW);
-    Serial.println(valCapt);
-  } 
-  delay(100);
+  delay(10);
 }
