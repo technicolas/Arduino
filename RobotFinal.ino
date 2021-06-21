@@ -54,9 +54,9 @@ void avant() {
 }
 
 void gauche() {
-  for(int i=0; i<3; i++){
-    digitalWrite(sortie[i], LOW);
-  }
+  digitalWrite(sortie[0], LOW);
+  digitalWrite(sortie[1], LOW);
+  digitalWrite(sortie[2], LOW);
   digitalWrite(sortie[3], HIGH);
 }
 
@@ -81,11 +81,11 @@ void testLigne(int Capt_G, int Capt_M, int Capt_D){
     // Par contre, si le capteur du milieu est sur la bande noire, on demande aux deux roues d'avancer normalement.
     
   if(Capt_G < SEUIL) 
-    roueD();                             // Ligne noire devant la photorésistance de gauche, mise en fonction du moteur droite.
+    roueD();                                                    // Ligne noire devant la photorésistance de gauche, mise en fonction du moteur droite.
   if(Capt_M < SEUIL)
-    roueGplusD();                        // Ligne noire devant la photorésistance centrale, mise en fonction du moteur gauche PLUS droit.
+    roueGplusD();                                               // Ligne noire devant la photorésistance centrale, mise en fonction du moteur gauche PLUS droit.
   if(Capt_D < SEUIL)
-    roueG();                             // Ligne noire devant la photorésistance de droite, mise en fonction du moteur gauche.
+    roueG();                                                    // Ligne noire devant la photorésistance de droite, mise en fonction du moteur gauche.
   if(Capt_G > SEUIL && Capt_M > SEUIL && Capt_D > SEUIL)
     arret();
   delay(100);
