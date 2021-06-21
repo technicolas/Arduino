@@ -76,11 +76,11 @@ void arret() {
 }
 
 void testLigne(int Capt_G, int Capt_M, int Capt_D){
-  if(Capt_G < SEUIL) 
+  if(Capt_G <= SEUIL) 
     roueD();                                                    // Ligne noire devant la photorésistance de gauche, mise en fonction du moteur droite.
-  if(Capt_M < SEUIL)
+  if(Capt_M <= SEUIL)
     roueGplusD();                                               // Ligne noire devant la photorésistance centrale, mise en fonction du moteur gauche PLUS droit.
-  if(Capt_D < SEUIL)
+  if(Capt_D <= SEUIL)
     roueG();                                                    // Ligne noire devant la photorésistance de droite, mise en fonction du moteur gauche.
   if(Capt_G > SEUIL && Capt_M > SEUIL && Capt_D > SEUIL)
     stop();                                                     // Si aucune ligne visible, mise à l'arrêt complet du robot.
