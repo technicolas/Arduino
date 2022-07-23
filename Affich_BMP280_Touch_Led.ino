@@ -77,7 +77,7 @@ void effaceEcran(){
   lcd.setCursor(0,0);
   lcd.print("                ");
   lcd.setCursor(0,1);
-  lcd.print("             ");
+  lcd.print("                ");
 }
 
 void alarmeTemp() {
