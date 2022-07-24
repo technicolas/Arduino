@@ -47,9 +47,6 @@ void loop() {
 void afficheur() {
   lcd.setBacklight(1);                  // Active le rétro-éclairage
   
-  lcd.setCursor(14,1);
-  lcd.print(temperature[temp]);
-  
   // Ligne du HAUT:
   lcd.setCursor(0,0);
   lcd.print(bme.readTemperature());
